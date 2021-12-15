@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>welcome to photographer Jiyun's web</title>
     <link rel="stylesheet" href="./css/w3.css">
-
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
     <script>
         function login(){
                   let id = document.getElementById("id").value;
@@ -16,7 +17,8 @@
                       if(pw=="1234"){
                           document.getElementById("login").innerHTML="<h2>" +  
                              "alert으로 로그인이 되었습니다. </h2>"; 
-                      } else {
+                      } 
+                      else {
                           alert("비밀번호를 확인하세요");
                       }
                   }else{
@@ -34,6 +36,27 @@
             for(let i=0; i<a.length; i++){
                 a[i].style.color="green";
             }
+             
+            function funAppend(){
+                const list = document.createElement("li");
+                const work = document.getElementById("text").value;
+                const node = document.createTextNode(work);
+                list.appendChild(node);
+                const ele = document.getElementById("ol1");
+                ele.appendChild(list);
+            }
+            function cartAppend(e){
+                const x = document.getElementById(e);
+                const ele = document.getElementById("cart");
+                ele.appendChild(x);
+            }
+            function cartRemove(e){
+                const x = document.getElementById(e);
+                const cart = document.getElementById("cart");
+                const list = document.getElementById("list");
+                cart.removeChild(x);
+                list.appendChild(x);
+            }
              function onClick(element){
                  document.getElementById('img01').src=element.src;
                 document.getElementById("modal01").style.display="block";
@@ -43,8 +66,9 @@
              window.open("ev.html", "event 11월", "width=700, height=900, scrollbars=yes");
 
              }
-             let name=' ';
-        function init(){
+             /*addEventListener()매소드 사용*/
+            let name=' ';
+            function init(){
             name = document.getElementById("fname");
             name.addEventListener("focus", bgcolor);
             name.addEventListener("blur",myfunc);
@@ -57,6 +81,7 @@
             name.style.backgroundColor="white";
         }
          }
+         
    </script>
     <style>
         *{font-family: Georgia, serif;}
@@ -90,13 +115,14 @@
         aside.right {
             flex: 1;
         }
-    </style>
+        </style>
+        
 </head>
-<body class="w3-margin-top" onload="tablePrint(); popup(); init()">
+<body class="w3-margin-top" onload="tablePrint(); popup(); init();">
     <header>
         <!-- Sidebar -->
         <div class="w3-sidebar w3-bar-block	w3-border-right" style="display:none" id="mySidebar">
-            <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+            <button onclick="w3_close();" class="w3-bar-item w3-large">Close &times;</button>
             <a href="#" class="w3-bar-item w3-button">전화문의</a>
             <a href="#" class="w3-bar-item w3-button">예약문의</a>
             <a href="#" class="w3-bar-item w3-button">Q&A</a>
@@ -105,7 +131,7 @@
             <button class="w3-button w3-none w3-xlarge" onclick="w3_open()">☰</button>
             <span class="w3-xlarge"></span>
         </div>
-        <img src="./images/최종.jpg" alt="me">
+        <img src="./image/카메라라.png" alt="">
         <h1 style="background-position: center; font-family: Georgia, serif; font-weight: bold;">Take a picture of the moment</h1>
     </header>
     <nav>
@@ -120,23 +146,32 @@
         </ul>
         </div>
     </nav>
+    <style>
+        #cart, #list{
+            display: flex;
+        }
+        #img1, #img2, #img3{
+            flex : 3;
+        }
+        </style>
     <section class="w3-container" style="width: 70%;">
      <article class="main">
         <div id="photo" class="w3-center">
             <h2 style="margin-bottom: 0px; font-family: Georgia, serif; background-color: ivory; text-align: center;" >Landscape picture</h2>
-            <img src="./images/b0632dadbde9e94e7118d0cb6edb0cf2.jpg" classs="w3-border w3-padding" alt="" style="margin-block-start: 0%; width: 700px; height: 480px; border: 10px solid ivory;">
+            <img src="./image/풍경.png" classs="w3-border w3-padding" alt="" style="margin-block-start: 0%; width: 700px; height: 480px; border: 10px solid ivory;">
             <br> <br>
             <h2 style="margin-bottom: 0px; font-family: Georgia, serif; background-color: azure; text-align: center;" >Wedding Photo</h2>
-            <img src="./images/1542302.jpg" classs="w3-border w3-padding" alt="" style="margin-block-start: 0%; width: 700px; height: 480px; border: 10px solid azure;">
+            <img src="./image/웨딩.png" classs="w3-border w3-padding" alt="" style="margin-block-start: 0%; width: 700px; height: 480px; border: 10px solid azure;">
             <br><br>
             <h2 style="margin-bottom: 0px; font-family: Georgia, serif; background-color: rgb(193, 223, 233); text-align: center;">Self Photo</h2>
-            <img src="./images/IMG_6200.JPG" classs="w3-border w3-padding" alt="" style="margin-block-start: 0%; width: 700px; height: 530px; border: 10px solid rgb(193, 223, 233);">
+            <img src="./image/셀프사진.png" classs="w3-border w3-padding" alt="" style="margin-block-start: 0%; width: 700px; height: 530px; border: 10px solid rgb(193, 223, 233);">
             <br><br>
             </div>
             <div class="media"></div>
             <h2 style="margin-bottom: 0px; font-family: Georgia, serif; background-color:beige; text-align: center;" >Produced video</h2>
             <iframe width="700" height="530" style="margin-block-start: 0px; border: 20px solid beige;" src="https://www.youtube.com/embed/sQWvweYtYzQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
+            <br><br>
         <div id="profile">
             <h2 style="font-family: Georgia, serif; background-color: rgb(236, 212, 215); margin-block-start: 0px;" >Studio</h2>
             <table class="w3-table-all w3-hoverable">
@@ -161,18 +196,57 @@
                     <td></td>
                 </tr>
             </table>
+            <br>
+            <h2 style="font-family: Georgia, serif; background-color:honeydew; margin-block-start: 0px;">wish</h2>
+            <div id="cart" style="width: 700px; height: 300px; border: 5px solid gray;">
+                
+            </div>
+            <br>
+            <h2 style="font-family: Georgia, serif; background-color:darkkhaki; margin-block-start: 0px;">product</h2>
+            <div id="list" style="width: 700px; height: 500px; border: 5px solid gray;">
+                <br>
+            <div id="img1">
+                <img src="./image/1.png" width="130" height="100" style="display:block">
+                <div>
+                <p>Nb01./price: 50000</p>
+                <button onclick="cartAppend('img1');" style="background-color: darksalmon; color: black;">추가</button>
+                <button onclick="cartRemove('img1');" style="background-color: darksalmon; color: black;">삭제</button>
+                </div>
+                <div id="img2">
+                    <img src="./image/2.png" width="130" height="100" style="display: block;">
+                    <div>
+                    <p>Nb02./price: 45000</p>
+                    <button onclick="cartAppend('img2');" style="background-color: darksalmon; color: black;">추가</button>
+                    <button onclick="cartRemove('img2');" style="background-color: darksalmon; color: black;">삭제</button>
+                </div>
+                <div id="img3">
+                    <img src="./image/3.png" width="130" height="100" style="display: block;">
+                    <div>
+                    <p>Nb03./price: 48000</p>
+                    <button onclick="cartAppend('img3');" style="background-color: darksalmon; color: black;">추가</button>
+                    <button onclick="cartRemove('img3');" style="background-color: darksalmon; color: black;">삭제</button>
+                </div>
+
+            </div>    
+
+            </div>
       </div>
       <br><br>
     </article>
      <aside class="right" class="w3-container">
+        
      <div id="link" class="w3-container w3-margin-bottom">
-
+        
         <h2 style="font-family: Georgia, serif; display: block;">Location</h2>
         <!-- 문서간의 이동 -->
-        <a href="https://map.naver.com/" target="_blank">https://map.naver.com</a><br><br>
+        
+        <a href="https://map.kakao.com/link/to/18577297" target="_blank" style="display: block; width: 150px; height: 50px; margin: 0; text-align: center; line-height: 50px;font-size: bold; border-radius: 5px; background: beige; color: black;">Directions</a><br><br>
+        
+        
+       
         <!-- 문서내 이동 -->
         <h2 style="font-family: Georgia, serif; display:block;">work of photo</h2>
-        <a href="#photo" style="display: block;">Click</a><br><br>
+        <a href="#photo" style="display: block; background-color: aliceblue; width: 150px; height: 50px; margin: 0; text-align: center; line-height: 50px; font-size: bold; border-radius: 5px;">Click</a><br><br>
         <h2 style="font-family: Georgia, serif; display: block;">Recommended photo location</h2>
         <ol id="ol1">
             <li>Jeju-Hyeopjae</li>
@@ -180,22 +254,23 @@
             <li>Jeonju Hanok Village</li>
             <li>Busan Jukseong Cathedral</li>
         </ol>
-        <input id="text" type="text" maxlength="40"><br>
-        <button onclick="liStyle()">추가</button>
-        </div>
+        <input name="" id="fname" type="text" maxlength="40" style="background-color:aliceblue"><br>
+        <button onclick="liStyle();" style="background-color: lightgoldenrodyellow;">스타일</button>
+        <button onclick="funAppend();" style="background-color: lightgoldenrodyellow;">추가</button>
         <div id="login" class="w3-container">
             <h2 style="font-family: Georgia, serif; display:block;">login</h2>
-            ID :<input type="text" name="" id="id"><br>
-            PW :<input type="password" name="" id="pw"><br>
-                <button onclick="login();" style="background-color: lightgoldenrodyellow;" >확인</button><button onclick="cancel();" style="background-color:lightgoldenrodyellow;">취소</button>
+            ID :<input type="text" name="" id="id" style="background-color: aliceblue;"><br>
+            PW :<input type="password" name="" id="pw" style="background-color: aliceblue;"><br>
+                <button onclick="login();" style="font-family: Georgia, serif; background-color: lightgoldenrodyellow;" >확인</button><button onclick="cancel();" style="font-family: Georgia, serif; background-color:lightgoldenrodyellow;">취소</button>
             </div>
             <div id="demo" class="w3-container">
-                <h2 class="w3-center"> </h2>
-                <div id="productList">
-                </div>
-
+            <h2 class="w3-center"> </h2>
+            <div id="productList">
+            
+                
     </aside>
     </section>
+    <br>
     <footer class="w3-gray w3-container w3-text-white w3-margin-bottom;"> 
         <div class="w3-row"></div>
         <div class="w3-col s4  w3-container" >
